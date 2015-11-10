@@ -1,0 +1,45 @@
+///
+/// @file base/_typography.scss
+///
+/// \brief Reusable, generic typographic styles used throughout the site.
+///
+/// Guidelines:
+///
+/// No layout-related properties (float, margin, padding, position, display,
+/// etc.), no template-specific stuff, try to follow the existing naming
+/// conventions and method of creating both mixins and extendable placeholders.
+
+// Base styles: each typeface has optimal type treatment that remains consitent
+// across the site.
+//
+// 'League Gothic'
+// 'League Gothic Condensed'
+
+$font--heading: 'League Gothic', sans-serif;
+$font--subheading: 'League Gothic Condensed', sans-serif;
+$font--text: Helvetica, 'Helvetica Neue', Arial, serif;
+$font--mono: Courier, 'Courier New', serif;
+
+@mixin font--heading {
+  font-family: $font--heading;
+  //text-transform: uppercase;
+  font-weight: normal;
+  line-height: 1.143;
+}
+%font--heading { @include font--heading; }
+
+@mixin font--subheading {
+  font-family: $font--subheading;
+  //text-transform: uppercase;
+  font-weight: normal;
+  line-height: 1;
+}
+%font--subheading { @include font--subheading; }
+
+@mixin font--text {
+  font-family: $font--text;
+  //letter-spacing: 0.025em;
+  font-weight: normal;
+  line-height: 1.2;
+}
+%font--text { @include font--text; }

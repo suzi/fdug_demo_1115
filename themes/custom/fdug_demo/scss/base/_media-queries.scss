@@ -1,0 +1,28 @@
+///
+/// @file base/_media-queries.scss
+///
+/// \brief Named media queries for easy use in nested selectors
+///
+/// In general these should be used in a mobile-first fashion, meaning
+/// everything is coded for $small, then overridden for $medium-up and
+/// overridden once more for $large-up. So you shouldn't even have to reference
+/// the $small-*, $*-down or $*-only breakpoints, but they're here for now
+/// just cause.
+///
+
+$xxsmall-down: max-width 480px;
+$xxsmall-only: (321px, 480px);
+$xxsmall-up: 321px;
+$xsmall-down: max-width 640px;
+$xsmall-only: (481px, 640px);
+$xsmall-up: 481px;
+$small-down: max-width 767px;
+$small-only: (641px, 767px);
+$small-up: 641px;
+$medium-down: max-width 1024px;
+$medium-only: (768px, 1024px);
+$medium-up: 768px;
+$landscape-up: 1024px;
+$large-only: 1025px;
+$large-up: 1025px;
+$largest-up: 1281px;

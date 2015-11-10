@@ -1,0 +1,47 @@
+///
+/// @file base/_variables.scss
+///
+/// \brief Variables
+///
+/// These are universally needed files that are SCSS-specific. Most of the
+/// following do not directly result in rendered CSS.
+
+// Layout
+$max-width-large: 1280px;
+
+// Typography
+$base-font-size: 18px;
+$base-line-height: 1.45em;
+
+$crazy-wide-constant: 100000px;
+
+// If you have questions about why these aren't classes
+// (http://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/)
+// It's because that method triggers compatability mode:
+// https://github.com/h5bp/html5-boilerplate/issues/1187
+$ie8: "html[data-useragent*='MSIE 8.0']";
+$ie9: "html[data-useragent*='MSIE 9.0']";
+$ie10: "html[data-useragent*='MSIE 10.0']";
+$ie11: "html[data-useragent*='MSIE 11.0']";
+
+// Compass variables
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: true;
+
+// Colors
+$color-blue: #0073a0;
+$color-white: #fff;
+$color-black: #000;
+$color-red: #c00;
+$color-dark-gray: #333;
+// background-color: rgba(#fff, 0.9);
+// background: rgba(#000, 0.8);
+$transparent--white: rgba(255, 255, 255, 0.75);
+$transparent--black: rgba(0, 0, 0, 0.6);
+
+// Abstract away the actual color names for common elements that may become
+// entirely different colors. Don't overdo it.
+$color-text: $color-black;
+$color-link: $color-black;
+$color-link-hover: #9da1a6;

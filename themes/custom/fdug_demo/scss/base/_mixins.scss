@@ -1,0 +1,222 @@
+///
+/// @file base/_mixins.scss
+///
+/// \brief Mixins are helpful snippets that let us not repeat ourselves
+///
+/// Mixins output css and style rules. Don't use a mixin where you could use
+/// @extend instead.
+///
+
+///
+/// Font Smoothing
+/// Primarily used to improve rendering of light text on dark backgrounds
+///
+@mixin font-smoothing($value: antialiased) {
+  @if $value == antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+///
+/// Style input placeholders
+///
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; opacity: 1 !important;} //opacity needed to override FF user agent
+  &::-moz-placeholder { @content; opacity: 1 !important;}
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+///
+/// Style input placeholders
+///
+@mixin input-styled-check($icon, $suffix: "checked", $padding: 15px)  {
+  // hide the actual element
+  position: absolute;
+  left: -9999px;
+  ~ label, ~ .label {
+    @include icon($icon);
+    &::before {
+      margin-right: $padding;
+    }
+  }
+  &:checked {
+    ~ label, ~ .label {
+      @include icon($icon + "--" + $suffix);
+    }
+  }
+}
+
+///
+/// Retina Images
+///
+/// Usage:
+/// @include image-2x('logo2x.png', 100px, 25px);
+/// Note: Retina images should follow naming convention of 'image@2x.png'
+///
+@mixin image-2x($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+  (-o-min-device-pixel-ratio: 2.6/2),
+  (-webkit-min-device-pixel-ratio: 1.3),
+  (min-device-pixel-ratio: 1.3),
+  (min-resolution: 1.3dppx) {
+    /* on retina, use image that's scaled by 2 */
+    background-image: image-url($image);
+    background-size: $width $height;
+  }
+}
+
+///
+/// Circles
+///
+/// Usage:
+/// @include circle(200px, #999);
+///
+@mixin circle($default-circle-width: 41px, $color: #ccc) {
+  width: $default-circle-width;
+  height: $default-circle-width;
+  background: $color;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+///
+/// Triangles - creates right triangles with border-clipping tricks.
+///
+/// Adapted from this: http://codepen.io/vieron/pen/xuHDA
+///
+/// Usage:
+/// @include triangle(size, color, direction)
+/// @include bordered-triangle(size, color, direction, border-color, [border-width], [cut])
+///
+/// size: The length of the hypotenuse of the triangle
+/// color: The fill color of the triangle
+/// direction: Which way the arrow points
+///
+/// border-color: The color of the border around the triangle
+/// border-width: The width of the border around the triangle
+/// cut: Removes the border along the hypotenuse
+///
+@mixin triangle($size, $color, $direction) {
+  height: 0;
+  width: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: $size / 2;
+
+  @if $direction == up {
+    border-bottom-color: $color;
+  } @else if $direction == right {
+    border-left-color:   $color;
+
+  } @else if $direction == down {
+    border-top-color:    $color;
+
+  } @else if $direction == left {
+    border-right-color:  $color;
+  }
+}
+
+@mixin bordered-triangle($size, $color, $direction, $border-color, $border-width: 1px, $cut: true) {
+  $back-size: $size + ($border-width * 2);
+  position: relative;
+
+  min-width: $size;
+  min-height: $size;
+
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &:after {
+     @include triangle($size, $color, $direction);
+  }
+
+  &:before {
+    @include triangle($back-size, $border-color, $direction);
+    $mid-border-width: ($border-width / 2);
+    $border-width-and-mid: $border-width + $mid-border-width;
+
+    @if ($cut == true) {
+      $mid-border-width: 0;
+      $border-width-and-mid: $border-width * 2;
+    }
+
+    @if ($direction == up) or ($direction == down) {
+      margin-left: - $border-width;
+
+      @if ($direction == down) {
+        margin-top: -$mid-border-width;
+      } @else {
+        margin-top: - $border-width-and-mid;
+      }
+
+    } @else if ($direction == right) or ($direction == left) {
+      margin-top: - $border-width;
+
+      @if ($direction == right) {
+        margin-left: - $mid-border-width;
+      } @else {
+        margin-left: - $border-width-and-mid;
+      }
+    }
+  }
+}
+
+///
+/// Vertical centerer
+/// Source: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+/// Note: This doesn't work in old browsers (ie. IE), you have to use javascript
+/// for them if it's important.
+///
+@mixin vertical-center {
+  @include transform(translateY(-50%));
+  position: relative;
+  top: 50%;
+}
+
+%vertical-center {
+  @include vertical-center;
+}
+
+@mixin destroy-vertical-center {
+  @include transform(none);
+  position: static;
+  top: auto;
+}
+
+///
+/// Vertical & Horizontal centerer
+///
+@mixin vertical-horizontal-center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%)
+}
+
+%vertical-horizontal-center {
+  @include vertical-horizontal-center;
+}
+
+
+@mixin link-hover($color: $color-link-hover, $text-decoration: underline) {
+  @include transition(color, 200ms);
+  &:hover {
+    color: $color;
+    text-decoration: $text-decoration;
+  }
+}

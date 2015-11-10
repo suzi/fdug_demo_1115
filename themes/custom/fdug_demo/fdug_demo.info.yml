@@ -1,0 +1,12 @@
+name: FDUG Demo
+type: theme
+description: '@TODO description - testing classy and BEM'
+package: FDUG
+version: 1.0.1
+# @note if you leave the core tag off it crashes the admin pages ouch
+core: 8.x
+base theme: classy
+
+# Defines libraries group in which we can add css/js.
+libraries:
+  - fdug_demo/global

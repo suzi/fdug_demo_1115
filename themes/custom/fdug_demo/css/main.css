@@ -1,0 +1,755 @@
+@charset "UTF-8";
+/**
+ * FDUG Demo Base
+ * Here's where the magic happens.
+ *
+ */
+h1, h2, h3, h4, h5 {
+  font-family: "League Gothic", sans-serif;
+  font-weight: normal;
+  line-height: 1.143;
+}
+
+h1.subhead, h2.subhead, h3.subhead, h4.subhead, h5.subhead {
+  font-family: "League Gothic Condensed", sans-serif;
+  font-weight: normal;
+  line-height: 1;
+}
+
+body {
+  font-family: Helvetica, "Helvetica Neue", Arial, serif;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+*,
+*:before,
+*:after,
+#colorbox div {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html.no-js .nojs_hidden, html.js .js_hidden {
+  display: none;
+}
+
+body {
+  letter-spacing: 0.01em;
+  font-size: 18px;
+}
+@media (min-width: 321px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: #0073a0;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin: 0 0 1em 0;
+  vertical-align: top;
+}
+
+a:focus {
+  outline: 0;
+  /* removes the default dotted border by the browser */
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+table th, table td {
+  padding: 1em;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.trans-white, .header-container__content, .main-container__content {
+  background: rgba(255, 255, 255, 0.75);
+  color: #000;
+}
+
+.trans-black, .footer-container__content {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-none {
+  float: none;
+}
+
+.clear-left {
+  clear: left;
+}
+
+.clear-right {
+  clear: right;
+}
+
+.clear-both,
+.clear {
+  clear: both;
+}
+
+.fluid-image {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mobile-hidden {
+  display: none;
+}
+@media (min-width: 768px) {
+  .mobile-hidden {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .pc-hidden {
+    display: none;
+  }
+}
+
+@font-face {
+  font-family: "../fonts/League Spartan";
+  src: url("../fonts/leaguespartan-bold.eot");
+  src: url("../fonts/leaguespartan-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/leaguespartan-bold.woff2") format("woff2"), url("../fonts/leaguespartan-bold.woff") format("woff"), url("../fonts/leaguespartan-bold.ttf") format("truetype"), url("../fonts/leaguespartan-bold.svg#league_spartanbold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+/* Regular */
+@font-face {
+  font-family: 'League Gothic';
+  src: url("../fonts/leaguegothic-italic-webfont.eot");
+  src: url("../fonts/leaguegothic-italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/leaguegothic-italic-webfont.woff") format("woff"), url("../fonts/leaguegothic-italic-webfont.ttf") format("truetype"), url("../fonts/leaguegothic-italic-webfont.svg#league_gothic_italicregular") format("svg");
+  font-weight: normal;
+  font-style: italic;
+}
+/* Italic */
+@font-face {
+  font-family: 'League Gothic';
+  src: url("../fonts/leaguegothic-regular-webfont.eot");
+  src: url("../fonts/leaguegothic-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/leaguegothic-regular-webfont.woff") format("woff"), url("../fonts/leaguegothic-regular-webfont.ttf") format("truetype"), url("../fonts/leaguegothic-regular-webfont.svg#league_gothicregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Condensed */
+@font-face {
+  font-family: 'League Gothic Condensed';
+  src: url("../fonts/leaguegothic-condensed-regular-webfont.eot");
+  src: url("../fonts/leaguegothic-condensed-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/leaguegothic-condensed-regular-webfont.woff") format("woff"), url("../fonts/leaguegothic-condensed-regular-webfont.ttf") format("truetype"), url("../fonts/leaguegothic-condensed-regular-webfont.svg#league_gothic_condensed-Rg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Condensed Italic */
+@font-face {
+  font-family: 'League Gothic Condensed';
+  src: url("../fonts/leaguegothic-condensed-italic-webfont.eot");
+  src: url("../fonts/leaguegothic-condensed-italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/leaguegothic-condensed-italic-webfont.woff") format("woff"), url("../fonts/leaguegothic-condensed-italic-webfont.ttf") format("truetype"), url("../fonts/leaguegothic-condensed-italic-webfont.svg#league_gothic_condensed_itaRg") format("svg");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'ticket';
+  src: url("../fonts//icons/ticket.eot?45457607");
+  src: url("../fonts//icons/ticket.eot?45457607#iefix") format("embedded-opentype"), url("../fonts//icons/ticket.woff?45457607") format("woff"), url("../fonts//icons/ticket.ttf?45457607") format("truetype"), url("../fonts//icons/ticket.svg?45457607#ticket") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'ticket';
+    src: url('../fonts//icons/ticket.svg?45457607#ticket') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "ticket";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-ticket:before {
+  content: '\e800';
+}
+
+/* '' */
+.icon-menu:before {
+  content: '\e801';
+}
+
+/* '' */
+.icon-facebook-circled:before {
+  content: '\e802';
+}
+
+/* '' */
+.icon-twitter:before {
+  content: '\e803';
+}
+
+/* '' */
+.icon-home:before {
+  content: '\e804';
+}
+
+/* '' */
+.icon-help-circled:before {
+  content: '\e805';
+}
+
+/* '' */
+.icon-help:before {
+  content: '\e806';
+}
+
+/* '' */
+.icon-mail:before {
+  content: '\e807';
+}
+
+/* '' */
+.icon-beer:before {
+  content: '\e808';
+}
+
+/* '' */
+.icon-facebook:before {
+  content: '\e809';
+}
+
+/* '' */
+.icon-instagram:before {
+  content: '\e80a';
+}
+
+/* '' */
+h1, h2, h3, h4, h5 {
+  font-family: "League Gothic", sans-serif;
+  font-weight: normal;
+  line-height: 1.143;
+}
+
+h1.subhead, h2.subhead, h3.subhead, h4.subhead, h5.subhead {
+  font-family: "League Gothic Condensed", sans-serif;
+  font-weight: normal;
+  line-height: 1;
+}
+
+body {
+  font-family: Helvetica, "Helvetica Neue", Arial, serif;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+html {
+  background: url("../images/bg/beer-699453.jpg") no-repeat center fixed;
+  background-size: cover;
+}
+@media (max-width: 480px) {
+  html {
+    background: none;
+  }
+}
+
+.bg-ios {
+  display: none;
+}
+@media (max-width: 480px) {
+  .bg-ios {
+    display: block;
+    background: transparent url("../images/bg/beer-bg__bp-sm.jpg") no-repeat top center;
+    position: absolute;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow: hidden;
+    z-index: -1;
+    background-size: cover;
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 5px 0 0 0;
+}
+@media (min-width: 768px) {
+  h1, h2, h3, h4, h5 {
+    margin: 10px 0 0 0;
+  }
+}
+
+h1 {
+  font-size: 2em;
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 4em;
+  }
+}
+
+h2 {
+  font-size: 2em;
+}
+@media (min-width: 768px) {
+  h2 {
+    font-size: 2.5em;
+  }
+}
+
+h3, h4 {
+  font-size: 1.5em;
+}
+@media (min-width: 768px) {
+  h3, h4 {
+    font-size: 2em;
+  }
+}
+
+h5 {
+  font-size: 1.25em;
+}
+@media (min-width: 768px) {
+  h5 {
+    font-size: 1.5em;
+  }
+}
+
+.beer-is-coming body {
+  color: #fff;
+}
+
+.header-container__content {
+  padding: 1em;
+  text-align: center;
+  margin: 2% 10%;
+}
+@media (min-width: 1025px) {
+  .header-container__content {
+    text-align: left;
+    width: 60%;
+    margin: 2% 10% 2% 0;
+    float: right;
+  }
+  .header-container__content h1 {
+    margin-top: 0;
+  }
+}
+
+.header-container__logo {
+  margin-top: 2%;
+}
+@media (min-width: 1025px) {
+  .header-container__logo {
+    float: left;
+    width: 25%;
+    text-align: center;
+  }
+}
+
+.logo__link {
+  display: block;
+  margin: 2% auto 0 auto;
+  width: 200px;
+}
+@media (min-width: 321px) {
+  .logo__link {
+    width: 250px;
+  }
+}
+@media (min-width: 768px) {
+  .logo__link {
+    width: 300px;
+  }
+}
+
+.main-container {
+  padding-bottom: 15em;
+}
+
+.main-container__content {
+  margin: 2% 10%;
+  padding: 1em;
+  position: relative;
+}
+
+.footer-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-container__content {
+  text-align: center;
+  font-size: 1.5em;
+  padding: 5px;
+}
+.footer-container__content a {
+  color: #fff;
+}
+@media (min-width: 768px) {
+  .footer-container__content {
+    font-size: 2em;
+  }
+}
+
+.menu-top {
+  float: right;
+  font-size: 2em;
+  margin-top: -.5em;
+  margin-right: -.5em;
+}
+
+.drawer {
+  background: #fff;
+  overflow-y: hidden;
+  max-height: 500px;
+  /* approximate max height */
+  transition-property: all;
+  transition-duration: .5s;
+  transition-timing-function: linear;
+  position: absolute;
+  z-index: 3;
+  right: 3em;
+  top: .5em;
+}
+
+.drawer.closed {
+  max-height: 0;
+}
+
+a.menu {
+  text-decoration: none;
+  color: #000;
+}
+
+a.menu span {
+  text-indent: -9999px;
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0 10px;
+  padding: 0;
+}
+nav ul li {
+  padding: 0;
+  margin: 0;
+  display: inline;
+}
+
+nav ul li a {
+  font-weight: bold;
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 5px;
+}
+
+/* Fallbacks */
+.no-csstransforms .menu-top {
+  position: static;
+}
+
+.no-csstransforms .drawer.closed nav {
+  display: none;
+}
+
+.no-csstransforms .drawer nav {
+  display: block;
+}
+
+/* MailChimp Form Embed Code - Slim - 08/17/2011 */
+#mc_embed_signup form {
+  display: block;
+  position: relative;
+  text-align: left;
+  padding: 10px;
+}
+
+#mc_embed_signup h2 {
+  font-weight: bold;
+  padding: 0;
+  margin: 15px 0;
+  font-size: 1.4em;
+}
+
+#mc_embed_signup input {
+  border: 1px solid #333;
+  -webkit-appearance: none;
+}
+
+#mc_embed_signup input[type=checkbox] {
+  -webkit-appearance: checkbox;
+}
+
+#mc_embed_signup input[type=radio] {
+  -webkit-appearance: radio;
+}
+
+#mc_embed_signup input:focus {
+  border-color: #999;
+}
+
+#mc_embed_signup .button {
+  clear: both;
+  background-color: #333;
+  border: 0 none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  margin: 0 5px 10px 0;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: auto;
+}
+
+#mc_embed_signup .button:hover {
+  background-color: #777;
+}
+
+#mc_embed_signup .small-meta {
+  font-size: 11px;
+}
+
+#mc_embed_signup .nowrap {
+  white-space: nowrap;
+}
+
+#mc_embed_signup .clear {
+  clear: none;
+  display: inline;
+}
+
+#mc_embed_signup label {
+  display: block;
+  font-size: 16px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+#mc_embed_signup input.email {
+  display: block;
+  padding: 8px 0;
+  margin: 0 4% 10px 0;
+  text-indent: 5px;
+  width: 58%;
+  min-width: 130px;
+}
+
+#mc_embed_signup input.button {
+  display: block;
+  width: 35%;
+  margin: 0 0 10px 0;
+  min-width: 90px;
+}
+
+#mc_embed_signup div#mce-responses {
+  float: left;
+  top: -1.4em;
+  padding: 0em .5em 0em .5em;
+  overflow: hidden;
+  width: 90%;
+  margin: 0 5%;
+  clear: both;
+}
+
+#mc_embed_signup div.response {
+  margin: 1em 0;
+  padding: 1em .5em .5em 0;
+  font-weight: bold;
+  float: left;
+  top: -1.5em;
+  z-index: 1;
+  width: 80%;
+}
+
+#mc_embed_signup #mce-error-response {
+  display: none;
+}
+
+#mc_embed_signup #mce-success-response {
+  color: #529214;
+  display: none;
+}
+
+#mc_embed_signup label.error {
+  display: block;
+  float: none;
+  width: auto;
+  margin-left: 1.05em;
+  text-align: left;
+  padding: .5em 0;
+}
+
+.sponsor__logo {
+  float: left;
+  margin: .5em;
+}
+
+.breweries a {
+  color: #000;
+  text-decoration: none;
+}
+.breweries a:hover {
+  text-decoration: underline;
+  color: #0073a0;
+}
+
+/*# sourceMappingURL=main.css.map */

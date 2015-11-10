@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+/**
+ * FDUG Demo Base
+ * Here's where the magic happens.
+ *
+ */
+
+$base-path: '../';
+$img-base: '../images/';
+$fonts-base: '../fonts/';
+
+// gems
+@import "compass";
+@import "compass/support";
+@import "toolkit";
+@import "breakpoint";
+@import "singularitygs";
+
+/// Base
+/// Global Sass/Compass utilities, and variables
+/// plus
+/// A collection of architecturally high-level styles for basic elements.
+/// http://smacss.com/book/type-base
+// we do what we want to keep things simpler for this install
+
+///
+/// These are universally needed files that are SCSS-specific. Most of the
+/// following DO NOT directly result in rendered CSS
+///
+@import "base/media-queries";
+@import "base/variables";
+@import "base/mixins";
+@import "base/typography";
+
+///
+/// The following DO result in rendered CSS output
+///
+@import "base/base";
+@import "base/helpers";
+@import "base/fonts";
+@import "base/typography";
+// @import "base/common";
+// @import "base/forms";
+
+// fduginess
+@import "styles/styles";

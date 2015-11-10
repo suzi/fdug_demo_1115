@@ -1,0 +1,240 @@
+$bgtest1: "#{$img-base}bg/beer-699453.jpg"; // WIN closeup top glass pretty - scale better
+$bgtest2: "#{$img-base}bg/beer-422138.jpg"; // WIN really large/cutting off / vertical
+$bg_bp1: "#{$img-base}bg/beer-bg__bp-tiny.jpg"; // WIN closeup top glass pretty - scale better
+$bg_bp2: "#{$img-base}bg/beer-bg__bp-sm.jpg"; // WIN closeup top glass pretty - scale better
+
+html {
+  background: url($bgtest1) no-repeat center fixed;
+  background-size: cover;
+  // ow
+  @include breakpoint($xxsmall-down) {
+    background: none;
+  }
+}
+.bg-ios {
+  display: none;
+  @include breakpoint($xxsmall-down) {
+    display: block;
+    background: transparent url($bg_bp2) no-repeat top center;
+    position: absolute;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow: hidden;
+    z-index: -1;
+    background-size: cover;
+  }
+}
+h1, h2, h3, h4, h5 {
+ @extend %font--heading;
+  margin: 5px 0 0 0;
+  @include breakpoint($medium-up) {
+    margin: 10px 0 0 0;
+  }
+  &.subhead {
+    @extend %font--subheading;
+  }
+}
+h1 {
+  font-size: 2em;
+  @include breakpoint($medium-up) {
+    font-size: 4em;
+  }
+}
+h2 {
+  font-size: 2em;
+  @include breakpoint($medium-up) {
+    font-size: 2.5em;
+  }
+}
+h3, h4 {
+  font-size: 1.5em;
+  @include breakpoint($medium-up) {
+    font-size: 2em;
+  }
+}
+h5 {
+  font-size: 1.25em;
+  @include breakpoint($medium-up) {
+    font-size: 1.5em;
+  }
+}
+
+// temp page
+.beer-is-coming {
+  body {
+    color: $color-white;
+  }
+}
+
+.header-container__content {
+  @extend %trans-white;
+  padding: 1em;
+  text-align: center;
+  margin: 2% 10%;
+  @include breakpoint($large-up) {
+    text-align: left;
+    width: 60%;
+    margin: 2% 10% 2% 0;
+    float: right;
+    h1 {
+      margin-top: 0;
+    }
+  }
+}
+.header-container__logo {
+  margin-top: 2%;
+  @include breakpoint($large-up) {
+    float: left;
+    width: 25%;
+    text-align: center;
+  }
+}
+.logo__link {
+  display: block;
+  margin: 2% auto 0 auto;
+  width: 200px;
+  @include breakpoint($xxsmall-up) {
+    width: 250px;
+  }
+  @include breakpoint($medium-up) {
+    width: 300px;
+  }
+}
+
+.main-container {
+  padding-bottom: 15em;
+}
+.main-container__content {
+  @extend %trans-white;
+  margin: 2% 10%;
+  padding: 1em;
+  position: relative;
+}
+.footer-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.footer-container__content {
+  //background: $color-black;
+  @extend %trans-black;
+  text-align: center;
+  font-size: 1.5em;
+  padding: 5px;
+  a {
+    color: $color-white;
+  }
+  @include breakpoint($medium-up) {
+    font-size: 2em;
+  }
+}
+
+// nav.
+
+.menu-top {
+  float: right;
+  font-size: 2em;
+  margin-top: -.5em;
+  margin-right: -.5em;
+}
+
+.drawer {
+  background: $color-white;
+	overflow-y: hidden;
+	max-height: 500px; /* approximate max height */
+	transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: linear;
+	position: absolute;
+	z-index: 3;
+	right: 3em;
+	top: .5em;
+}
+
+.drawer.closed {
+	max-height: 0;
+}
+
+a.menu {
+	text-decoration: none;
+	color: $color-black;
+}
+a.menu span {
+  text-indent: -9999px;
+  display: block;
+}
+nav ul {
+  list-style:none;
+  margin: 0 10px;
+  padding: 0;
+  li {
+    padding: 0;
+    margin: 0;
+    display: inline;
+  }
+}
+nav ul li a {
+  font-weight: bold;
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 5px;
+}
+
+/* Fallbacks */
+
+.no-csstransforms .menu-top {
+	position: static;
+}
+.no-csstransforms .drawer.closed nav {
+	display: none;
+}
+.no-csstransforms .drawer nav {
+	display: block;
+}
+
+
+// email form
+
+/* MailChimp Form Embed Code - Slim - 08/17/2011 */
+#mc_embed_signup form {display:block; position:relative; text-align:left; padding:10px}
+#mc_embed_signup h2 {font-weight:bold; padding:0; margin:15px 0; font-size:1.4em;}
+#mc_embed_signup input {border:1px solid #333; -webkit-appearance:none;}
+#mc_embed_signup input[type=checkbox]{-webkit-appearance:checkbox;}
+#mc_embed_signup input[type=radio]{-webkit-appearance:radio;}
+#mc_embed_signup input:focus {border-color:#999;}
+#mc_embed_signup .button {clear:both; background-color: #333; border: 0 none; color: #FFFFFF; cursor: pointer; display: inline-block; height: 36px; line-height: 36px; margin: 0 5px 10px 0; padding:0; text-align: center; text-decoration: none; vertical-align: top; white-space: nowrap; width: auto;}
+#mc_embed_signup .button:hover {background-color:#777;}
+#mc_embed_signup .small-meta {font-size: 11px;}
+#mc_embed_signup .nowrap {white-space:nowrap;}
+#mc_embed_signup .clear {clear:none; display:inline;}
+
+#mc_embed_signup label {display:block; font-size:16px; padding-bottom:10px; font-weight:bold;}
+#mc_embed_signup input.email {display:block; padding:8px 0; margin:0 4% 10px 0; text-indent:5px; width:58%; min-width:130px;}
+#mc_embed_signup input.button {display:block; width:35%; margin:0 0 10px 0; min-width:90px;}
+
+#mc_embed_signup div#mce-responses {float:left; top:-1.4em; padding:0em .5em 0em .5em; overflow:hidden; width:90%;margin: 0 5%; clear: both;}
+#mc_embed_signup div.response {margin:1em 0; padding:1em .5em .5em 0; font-weight:bold; float:left; top:-1.5em; z-index:1; width:80%;}
+#mc_embed_signup #mce-error-response {display:none;}
+#mc_embed_signup #mce-success-response {color:#529214; display:none;}
+#mc_embed_signup label.error {display:block; float:none; width:auto; margin-left:1.05em; text-align:left; padding:.5em 0;}
+
+// sponsors
+
+.sponsor__logo {
+  float: left;
+  margin: .5em;
+}
+
+// breweries
+
+.breweries a {
+  color: $color-black;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: $color-blue;
+  }
+}
